@@ -1,0 +1,61 @@
+/* Định dạng cho form đăng nhập */
+.login-form {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #350255;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #350255;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #FFD700;
+}
+
+.login-form p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-form a {
+    color: #350255;
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,275 @@
+/* Header Styles */
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung (các nút) */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: white; /* Nền sáng */
+    color: #2a0242; /* Chữ tối */
+    padding: 17px 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+header.scrolled {
+    background-color: #2a0242; /* Nền tối khi cuộn */
+    color: white; /* Chữ sáng khi cuộn */
+}
+
+/* Định vị logo sang trái và điều hướng ở giữa */
+.logo {
+    position: absolute;
+    left: 30px; /* Đưa logo sang phía trái */
+}
+
+.logo img {
+    height: 47px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding-top: 8px;
+}
+
+header.scrolled .logo img {
+    transform: scale(1); /* Thu nhỏ logo khi cuộn */
+}
+
+/* Styles cho các nút điều hướng */
+.nav-links ul li a {
+    color: #350255; /* Màu chữ */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 19px;
+    padding: 10px 15px;
+    border-radius: 8px; /* Bo tròn các nút */
+    transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động mượt */
+    position: relative;
+    z-index: 1; /* Đảm bảo nút nằm phía trên */
+    display: inline-block; /* Đảm bảo kích thước phần tử bao quanh chính xác */
+    overflow: hidden; /* Đảm bảo phần tử con không tràn ra ngoài */
+}
+
+.nav-links ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Màu nền hover */
+    transition: all 0.3s ease; /* Thêm hiệu ứng di chuyển nền */
+    z-index: -1; /* Đảm bảo hiệu ứng nền nằm dưới chữ */
+}
+
+.nav-links ul li a:hover::before {
+    left: 0; /* Nền di chuyển từ trái sang phải khi hover */
+}
+
+.nav-links ul li a:hover {
+    background-color: #FFD700; /* Màu nền khi hover */
+    color: #350255; /* Màu chữ khi hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng đổ bóng khi hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+header.scrolled .nav-links ul li a {
+    color: white; /* Màu chữ khi cuộn xuống */
+}
+
+header.scrolled .nav-links ul li a:hover {
+    background-color: #FFD700; /* Màu nền khi hover khi cuộn */
+    color: #350255; /* Màu chữ khi hover khi cuộn */
+}
+
+/* Hiệu ứng gợn sóng khi click */
+.nav-links ul li a:active::before {
+    background-color: #FF69B4;
+    transform: scale(1.2);
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Tăng khoảng cách giữa các nút */
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('../assets/images/hero-default.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 276px 20px ;
+    color: white;
+    text-align: center;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden; /* Đảm bảo nội dung không vượt ra ngoài hero */
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(53, 2, 85, 0.6); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #ff9100;
+    color: #350255;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #FF69B4;
+    transform: scale(1.05);
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 36px;
+    color: #350255;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Services Section */
+.services-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.services-section h2 {
+    font-size: 36px;
+    color: #350255;
+    margin-bottom: 40px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card i {
+    font-size: 40px;
+    color: #ff8800;
+    margin-top: 20px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    color: #350255;
+    margin: 20px 0;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #555;
+    padding: 0 20px 20px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 36px;
+    color: #350255;
+    margin-bottom: 30px;
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.testimonial h4 {
+    font-size: 18px;
+    color: #350255;
+    font-weight: bold;
+}
