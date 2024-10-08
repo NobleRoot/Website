@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NobleRoot - Nền tảng học Crypto</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/main.css">
-    <link rel="stylesheet" href="src/assets/css/index.css">
+    <link rel="stylesheet" href="/src/assets/css/main.css">
+    <link rel="stylesheet" href="/src/assets/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <style>
+        /* Hiệu ứng slide-in */
+        #transition-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #350255;
+            /* Màu nền của hiệu ứng */
+            z-index: 9999;
+            transform: translateX(100%);
+            /* Bắt đầu từ bên ngoài bên phải */
+            transition: transform 0.5s ease-in-out;
+            /* Hiệu ứng slide */
+        }
+
+        /* Khi thêm class active, màn hình sẽ slide vào từ phải */
+        #transition-wrapper.active {
+            transform: translateX(0);
+            /* Hiệu ứng trượt từ phải sang trái */
+        }
+    </style>
+
 </head>
-<body class="page-transition">
+
+<body>
     <header>
         <div class="logo">
-            <img src="src/assets/images/Logo-light.svg" alt="NobleRoot Logo" id="logo">
+            <img src="/src/assets/images/Logo-light.svg" alt="NobleRoot Logo" id="logo">
         </div>
         <nav class="nav-links">
             <ul>
-                <li><a href="pages/about.html">About Us</a></li>
-                <li><a href="src/pages/Register.html">Đăng Kí</a></li>
-                <li><a href="src/pages/Login.html">Đăng Nhập</a></li>
+                <li><a href="about.html" onclick="transitionPage(event)">About Us</a></li>
+                <li><a href="/src/pages/Register.html" onclick="transitionPage(event)">Đăng Kí</a></li>
+                <li><a href="/src/pages/Login.html" onclick="transitionPage(event)">Đăng Nhập</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <!-- Thanh tiến trình cuộn -->
     <div id="progress-bar"></div>
 
-    <!-- Hiệu ứng chuyển cảnh trang -->
-    <div id="transition-wrapper" class="active"></div>
+    <!-- Hiệu ứng slide-in -->
+    <div id="transition-wrapper"></div>
 
     <!-- Hero Section -->
     <section class="hero" data-aos="fade-up">
         <div class="hero-content">
             <h1>Học Crypto Dễ Dàng</h1>
-            <p>Nền tảng học tập dành cho tất cả mọi người từ cơ bản đến nâng cao. Bắt đầu hành trình của bạn ngay hôm nay.</p>
-            <a href="src/pages/Courses.html" class="cta-btn">Khám phá khóa học</a>
+            <p>Nền tảng học tập dành cho tất cả mọi người từ cơ bản đến nâng cao. Bắt đầu hành trình của bạn ngay hôm
+                nay.</p>
+            <a href="/src/pages/Courses.html" class="cta-btn">Khám phá khóa học</a>
         </div>
     </section>
 
@@ -43,9 +71,11 @@
     <section class="about-section" data-aos="fade-left">
         <div class="about-content">
             <h2>Về NobleRoot</h2>
-            <p>Chúng tôi cung cấp các khóa học về Crypto, Blockchain, và Trading, giúp bạn tiếp cận thế giới tài chính số một cách dễ dàng và hiệu quả.</p>
+            <p>Chúng tôi cung cấp các khóa học về Crypto, Blockchain, và Trading, giúp bạn tiếp cận thế giới tài chính
+                số một cách dễ dàng và hiệu quả.</p>
         </div>
     </section>
+
 
     <!-- Services Section -->
     <section class="services-section" data-aos="fade-right">
@@ -69,6 +99,8 @@
         </div>
     </section>
 
+
+
     <!-- Testimonials Section -->
     <section class="testimonials-section" data-aos="fade-up">
         <h2>Học viên nói gì về chúng tôi?</h2>
@@ -87,7 +119,7 @@
     <!-- Footer -->
     <div data-include="components/footer.html"></div>
 
-    <script src="src/assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -95,58 +127,40 @@
             once: true,
         });
 
-        // Sticky Navigation
-        window.onscroll = function() {
-            const header = document.querySelector('header');
-            const progressBar = document.getElementById('progress-bar');
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + '%';
-
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        };
-
-        // Page Transition
-        window.addEventListener('load', function() {
+        // Hiệu ứng slide-in khi tải trang
+        window.addEventListener('load', function () {
             const transitionWrapper = document.getElementById('transition-wrapper');
-            transitionWrapper.classList.remove('active');
-            document.body.classList.remove('page-transition');
+            setTimeout(function () {
+                transitionWrapper.classList.remove('active'); // Slide từ phải vào khi trang tải xong
+            }, 100); // 100ms delay để đảm bảo trang tải hoàn chỉnh
         });
 
-        const links = document.querySelectorAll('a');
-        for (let i = 0; i < links.length; i++) {
-            links[i].addEventListener('click', function(e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                document.getElementById('transition-wrapper').classList.add('active');
-                document.body.classList.add('page-transition');
-                setTimeout(function() {
-                    window.location.href = href;
-                }, 600);
-            });
+        function transitionPage(event) {
+            event.preventDefault(); // Ngăn hành động mặc định của liên kết
+            const transitionWrapper = document.getElementById('transition-wrapper');
+            transitionWrapper.classList.add('active'); // Slide từ phải vào khi chuyển trang
+
+            setTimeout(function () {
+                window.location.href = event.target.href; // Chuyển hướng sau khi hiệu ứng hoàn tất
+            }, 500); // 500ms trùng với thời gian của hiệu ứng CSS
         }
     </script>
 
-<script>
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        const logo = document.getElementById('logo');
-        const scrollPos = window.scrollY;
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            const logo = document.getElementById('logo');
+            const scrollPos = window.scrollY;
 
-        if (scrollPos > 600) {
-            header.classList.add('scrolled');
-            logo.src = "src/assets/images/Logo-dark.svg"; // Đổi logo khi cuộn
-        } else {
-            header.classList.remove('scrolled');
-            logo.src = "src/assets/images/Logo-light.svg"; // Logo khi chưa cuộn
-        }
-    });
-</script>
-
+            if (scrollPos > 600) {
+                header.classList.add('scrolled');
+                logo.src = "/src/assets/images/Logo-dark.svg"; // Đổi logo khi cuộn
+            } else {
+                header.classList.remove('scrolled');
+                logo.src = "/src/assets/images/Logo-light.svg"; // Logo khi chưa cuộn
+            }
+        });
+    </script>
 </body>
+
 </html>

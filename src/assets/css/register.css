@@ -1,25 +1,56 @@
-/* Định dạng cho form đăng ký */
-.register-form {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+/* Container tổng */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86.3vh;
+    width: 70%; /* Chỉ chiếm 70% chiều rộng màn hình */
+    margin: 0 auto; /* Căn giữa container */
+    border-radius: 15px; /* Bo góc */
+    box-shadow: 0px 8px 24px rgba(247, 10, 255, 0.2); /* Tạo đổ bóng */
+
 }
 
-.register-form h1 {
-    text-align: center;
-    margin-bottom: 20px;
+
+/* Welcome section */
+.welcome-section {
+    width: 50%;
+    background-image: url('../images/registerfbg.svg'); /* Hình ảnh nền cho phần welcome */
+    background-size: cover; /* Đảm bảo ảnh nền lấp đầy */
+    background-position: center; /* Ảnh nền sẽ được căn giữa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Chiều cao bằng với toàn bộ chiều cao container */
+    border-top-left-radius: 15px; /* Bo góc trên trái */
+    border-bottom-left-radius: 15px; /* Bo góc dưới trái */
+}
+
+/* Nếu bạn có hình ảnh riêng biệt trong phần welcome (không phải background-image) */
+.welcome-section img {
+    display: none; /* Ẩn ảnh nếu bạn sử dụng background-image */
+}
+
+
+/* Form section */
+.form-section {
+    width: 50%;
+    padding: 50px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #ddd; /* Thêm border */
+    border-top-right-radius: 15px; /* Bo góc trên phải */
+    border-bottom-right-radius: 15px; /* Bo góc dưới phải */
+}
+
+.register-form h2 {
     color: #350255;
-}
+    font-size: 28px;
+    margin-bottom: 20px;
 
-.register-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #333;
 }
 
 .register-form input {
@@ -27,35 +58,92 @@
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển động */
+}
+.register-form input:focus {
+    border-color: #ff9100;
+    box-shadow: 0 0 8px rgba(255, 145, 0, 0.5); /* Hiệu ứng bóng khi người dùng nhập liệu */
 }
 
-.register-form button {
+.submit-btn {
     width: 100%;
     padding: 10px;
-    background-color: #350255;
+    background: linear-gradient(90deg, #ff9100, #ff6500); /* Gradient màu cam */
     color: white;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin-bottom: 10px; /* Thêm khoảng cách phía dưới nút */
 }
 
-.register-form button:hover {
-    background-color: #FFD700;
+.submit-btn:hover {
+    background: linear-gradient(90deg, #ff6500, #ff9100); /* Thay đổi gradient khi hover */
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+}
+
+/* Căn giữa container chính */
+body {
+    background-image: url('../images/registerbg.svg'); /* Màu nền của toàn bộ trang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .register-form p {
-    text-align: center;
-    margin-top: 10px;
+    text-align: center; /* Thêm khoảng cách trên dòng Login */
 }
 
-.register-form a {
-    color: #350255;
+/* Sử dụng inline-flex để đảm bảo checkbox và văn bản nằm ngang */
+.terms {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.terms input[type="checkbox"] {
+    margin-right: 5px; /* Khoảng cách giữa checkbox và văn bản */
+}
+
+.terms label {
+    margin-bottom: 18px;
+    font-size: 16px;
+    white-space: nowrap; /* Đảm bảo văn bản không bị xuống dòng */
+}
+
+
+/* Back to Home button */
+.back-home-btn {
+    font-size: 13px;
     text-decoration: none;
+    color: white;
+    background-color: #350255;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 15px;
+    width: fit-content; /* Tự động điều chỉnh độ dài */
 }
 
-.register-form a:hover {
-    text-decoration: underline;
+.back-home-btn i {
+    margin-right: 8px;
+    font-size: 16px;
 }
+
+.back-home-btn:hover {
+    background-color: #ff9100;
+    transform: scale(1.05); /* Phóng to nút khi hover */
+    text-decoration: none; /* Không có gạch chân khi hover */
+}
+
+
+
