@@ -1,25 +1,48 @@
-/* Định dạng cho form đăng nhập */
-.login-form {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Container tổng */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 67.20vh;
+    width: 70%; /* Chỉ chiếm 70% chiều rộng màn hình */
+    margin: 0 auto; /* Căn giữa container */
+    border-radius: 15px; /* Bo góc */
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.4); 
 }
 
-.login-form h1 {
-    text-align: center;
-    margin-bottom: 20px;
+/* Welcome section */
+.welcome-section {
+    width: 50%;
+    background-image: url('../images/loginfbg.svg'); /* Hình nền cho phần welcome */
+    background-size: cover;
+    background-position: center;    
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.welcome-section img {
+    display: none; /* Ẩn ảnh nếu bạn sử dụng background-image */
+}
+/* Form section */
+.form-section {
+    width: 50%;
+    padding: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.login-form h2 {
     color: #350255;
-}
-
-.login-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #333;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 .login-form input {
@@ -27,35 +50,98 @@
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.login-form button {
+.login-form input:focus {
+    border-color: #ff9100;
+    box-shadow: 0 0 8px rgba(255, 145, 0, 0.5);
+}
+
+/* Remember me checkbox */
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.submit-btn {
     width: 100%;
     padding: 10px;
-    background-color: #350255;
+    background: linear-gradient(90deg, #ff9100, #ff6500);
     color: white;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin-bottom: 10px;
 }
 
-.login-form button:hover {
-    background-color: #FFD700;
+.submit-btn:hover {
+    background: linear-gradient(90deg, #ff6500, #ff9100);
+    transform: scale(1.05);
+}
+
+/* Căn giữa container chính */
+body {
+    background-image: url('../images/loginbg.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .login-form p {
     text-align: center;
-    margin-top: 10px;
 }
 
-.login-form a {
-    color: #350255;
+/* Back to Home button */
+.back-home-btn {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #350255;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 15px;
+    width: fit-content;
+}
+
+.back-home-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.back-home-btn:hover {
+    background-color: #ff9100;
+    transform: scale(1.05);
     text-decoration: none;
 }
+.remember-me{
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
-.login-form a:hover {
-    text-decoration: underline;
+.remember-me input[type="checkbox"] {
+    margin-right: 5px; /* Khoảng cách giữa checkbox và văn bản */
+}
+
+.remember-me label {
+    margin-bottom: 18px;
+    font-size: 16px;
+    white-space: nowrap; /* Đảm bảo văn bản không bị xuống dòng */
 }

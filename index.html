@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
     <style>
-        /* Hiệu ứng slide-in */
+  
         #transition-wrapper {
             position: fixed;
             top: 0;
@@ -20,18 +20,18 @@
             width: 100%;
             height: 100%;
             background-color: #350255;
-            /* Màu nền của hiệu ứng */
+
             z-index: 9999;
             transform: translateX(100%);
-            /* Bắt đầu từ bên ngoài bên phải */
+
             transition: transform 0.5s ease-in-out;
-            /* Hiệu ứng slide */
+
         }
 
-        /* Khi thêm class active, màn hình sẽ slide vào từ phải */
+
         #transition-wrapper.active {
             transform: translateX(0);
-            /* Hiệu ứng trượt từ phải sang trái */
+
         }
     </style>
 
